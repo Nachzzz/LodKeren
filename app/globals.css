@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  /* Definimos los colores para que sigan funcionando tus botones y fondos */
+  --color-brand-cream: #FAF3E0;
+  --color-brand-brown: #5D4037;
+  --color-brand-green: #7CB342;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gray: #37474F;
+
+
+}
+
+  html {
+  /* 1. Activa el deslizamiento suave */
+  scroll-behavior: smooth;
+  
+  /* 2. El Truco del Navbar: */
+  /* Esto deja un espacio arriba al hacer scroll para que el Navbar no tape el título */
+  scroll-padding-top: 100px; 
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-gray);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Forzamos la fuente Lato (Sans) para todo el cuerpo */
+  font-family: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
 }
+
+/* --- FUERZA BRUTA PARA TÍTULOS --- */
+/* Esto ataca directamente a las etiquetas H1, H2, etc. y a cualquier cosa con clase font-serif */
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-playfair), Georgia, 'Times New Roman', serif !important;
+  font-weight: 700;
+}
+
