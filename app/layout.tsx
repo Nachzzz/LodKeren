@@ -8,10 +8,10 @@ import FloatingCart from "./components/layout/FloatingCart";
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"], variable: "--font-lato" });
 
-export const metadata: Metadata = {
-  title: "Lo d' Keren | Salud y Libertad",
-  description: "Productos DXN",
-};
+// export const metadata: Metadata = {
+//   title: "Lo d' Keren | Salud y Libertad",
+//   description: "Productos DXN",
+// };
 
 export const metadata: Metadata = {
   // 1. URL BASE (IMPORTANTE: Cambia esto por tu link real de Vercel)
