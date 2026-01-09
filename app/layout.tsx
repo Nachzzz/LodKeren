@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Lo d' Keren",
     images: [
       {
-        url: '/images/og-image.jpg', // La imagen rectangular que creamos
+        url: 'https://lod-keren-mdr1.vercel.app/images/og-image.jpg', // La imagen rectangular que creamos
         width: 1200,
         height: 630,
         alt: "Lo d' Keren - Bienestar y Café DXN",
