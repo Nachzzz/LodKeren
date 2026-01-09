@@ -32,11 +32,12 @@ export default function Navbar() {
             <Link href="#nosotros" className="hover:text-brand-gold transition-colors">Sobre Nosotros</Link>
             <Link href="#productos" className="hover:text-brand-gold transition-colors">Productos</Link>
             <Link href="#negocio" className="hover:text-brand-gold transition-colors">Negocio</Link>
-            <Link href="#contacto" className="hover:text-brand-gold transition-colors">Contacto</Link>
+            <Link href="#negocio" className="hover:text-brand-gold transition-colors">Contacto</Link>
             
             {/* Botón Desktop */}
-            <button className="bg-brand-gold text-white px-6 py-2.5 rounded-lg font-bold hover:bg-[#C59D35] transition-colors shadow-md text-sm">
-              Ver Catálogo
+            <button className="bg-brand-gold text-white px-6 py-2.5 rounded-lg font-bold hover:bg-[#C59D35] transition-colors shadow-md text-sm"
+            >
+              <Link href="#productos">Ver Catálogo</Link>
             </button>
           </div>
 
@@ -84,7 +85,7 @@ export default function Navbar() {
             Negocio
           </Link>
           <Link 
-            href="#contacto" 
+            href="#negocio" 
             onClick={() => setIsOpen(false)} 
             className="block text-brand-brown hover:text-brand-gold font-medium py-2 border-b border-brand-brown/5"
           >

@@ -1,6 +1,15 @@
 import { TrendingUp, Users, Award } from "lucide-react";
 
 export default function Business() {
+  const pedirInfo = () => {
+    const phoneNumber = "5493873698636"; // PON AQUÍ EL NÚMERO DE TU CLIENTA (con código de país sin +)
+
+    const text = `Hola!. Quiero obtener más información sobre el negocio con productos DXN.`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+  };
+
+
   return (
     <section id="negocio" className="py-24 bg-brand-brown text-white">
       <div className="container mx-auto px-4 text-center">
@@ -33,7 +42,9 @@ export default function Business() {
             No necesitas experiencia previa. Te brindamos toda la capacitación, herramientas y apoyo que necesitas para tener éxito.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-brand-gold text-white px-8 py-3 rounded-lg font-bold hover:bg-[#B69530] transition-colors">
+            <button className="bg-brand-gold text-white px-8 py-3 rounded-lg font-bold hover:bg-[#B69530] transition-colors"
+              onClick={pedirInfo}
+            >
               Unirme al Equipo
             </button>
             <button className="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition-colors">

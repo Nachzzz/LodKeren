@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -37,12 +38,12 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Botón Dorado Sólido */}
           <button className="bg-brand-gold text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-[#C59D35] transition-all transform hover:-translate-y-1 shadow-lg">
-            Ver Catálogo
+            <Link href="#productos">Ver Catálogo</Link>
           </button>
           
           {/* Botón Transparente con Borde Blanco */}
           <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-white/10 transition-all">
-            Conocer Más
+            <Link href="#nosotros">Conocer Más</Link>
           </button>
         </div>
       </div>

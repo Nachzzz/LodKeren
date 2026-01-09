@@ -56,7 +56,7 @@ export default function Footer() {
             <ul className="space-y-4 font-sans text-gray-300 text-sm mb-8">
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-gold" />
-                <span>+54 9 11 0000 0000</span> {/* Ajusta con el nro real */}
+                <span>+5493873698636</span> {/* Ajusta con el nro real */}
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-gold" />
@@ -70,10 +70,10 @@ export default function Footer() {
 
             {/* Redes Sociales */}
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center hover:bg-white hover:text-brand-brown transition-all text-white">
+              <a href="https://www.facebook.com/profile.php?id=61583828153933&sk=about" className="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center hover:bg-white hover:text-brand-brown transition-all text-white">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center hover:bg-white hover:text-brand-brown transition-all text-white">
+              <a href="https://www.instagram.com/lodkerendxn/?utm_source=ig_web_button_share_sheet" className="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center hover:bg-white hover:text-brand-brown transition-all text-white">
                 <Instagram size={20} />
               </a>
             </div>
