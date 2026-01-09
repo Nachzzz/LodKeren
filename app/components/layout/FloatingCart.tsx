@@ -13,7 +13,7 @@ export default function FloatingCart() {
 
   // --- LÓGICA DE WHATSAPP ---
   const handleCheckout = () => {
-    const phoneNumber = "5491100000000"; // PON AQUÍ EL NÚMERO DE TU CLIENTA (con código de país sin +)
+    const phoneNumber = "5493873698636"; // PON AQUÍ EL NÚMERO DE TU CLIENTA (con código de país sin +)
     
     const productsMessage = cart.map(item => 
       `- *${item.quantity}x* ${item.name} ($${(item.price * item.quantity).toLocaleString('es-AR')})`
