@@ -34,12 +34,14 @@ export default function Navbar() {
             <Link href="#negocio" className="hover:text-brand-gold transition-colors">Negocio</Link>
             <Link href="#negocio" className="hover:text-brand-gold transition-colors">Contacto</Link>
             
-            {/* Botón Desktop */}
+            
+          </div>
+
+          {/* Botón Desktop */}
             <button className="bg-brand-gold text-white px-6 py-2.5 rounded-lg font-bold hover:bg-[#C59D35] transition-colors shadow-md text-sm"
             >
               <Link href="#productos">Ver Catálogo</Link>
             </button>
-          </div>
 
           {/* BOTÓN HAMBURGUESA (Visible solo en móvil 'md:hidden') */}
           <button 
