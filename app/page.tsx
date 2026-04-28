@@ -17,7 +17,7 @@ export default function Home() {
       id: "1",
       name: "DXN Total Moisturizing Cream",
       description: "Crema hidratante total que penetra profundamente en todas las capas de la piel, proporcionando hidratación integral y duración prolongada.",
-      imageSrc: "/images/SC114.jpg",
+      imageSrc: "/images/SC120.jpg",
       productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-total-moisturizing-cream",
       isFeatured: true
     },
@@ -25,7 +25,7 @@ export default function Home() {
       id: "2",
       name: "DXN Smoothness and Nourishment Cream",
       description: "Fórmula especial que suaviza la textura cutánea mientras nutre profundamente con ingredientes naturales certificados.",
-      imageSrc: "/images/SC115.jpg",
+      imageSrc: "/images/SC121.jpg",
       productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-smoothness-and-nourishment-cream",
       isFeatured: true
     },
@@ -33,7 +33,7 @@ export default function Home() {
       id: "3",
       name: "DXN Maximum Hydration Cream",
       description: "Máxima hidratación para pieles secas y deshidratadas. Restaura la elasticidad natural y deja la piel radiante y suave.",
-      imageSrc: "/images/SC116.jpg",
+      imageSrc: "/images/SC119.jpg",
       productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-maximum-hydration-cream",
       isFeatured: true
     },
@@ -41,7 +41,7 @@ export default function Home() {
       id: "4",
       name: "DXN Deep Moisturizing Cream",
       description: "Crema de hidratación profunda con Ganoderma Lucidum. Ideal para regeneración nocturna y reparación cutánea intensiva.",
-      imageSrc: "/images/SC117.jpg",
+      imageSrc: "/images/SC118.jpg",
       productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-deep-moisturizing-cream",
       isFeatured: true
     },
@@ -49,18 +49,18 @@ export default function Home() {
       id: "5",
       name: "DXN Ultra Nutritive Cream",
       description: "Tratamiento nutricional ultra concentrado. Rico en antioxidantes para revitalizar y rejuvenecer tu piel desde adentro.",
-      imageSrc: "/images/SC118.jpg",
+      imageSrc: "/images/SC117.jpg",
       productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-ultra-nutritive-cream",
       isFeatured: false
     },
-    {
-      id: "6",
-      name: "Jabón Ganozhi",
-      description: "Jabón premium elaborado con Ganoderma para limpieza delicada. Mantiene la piel hidratada y protegida sin resecación.",
-      imageSrc: "/images/SC120.jpg",
-      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-personal/jabon-ganozhi",
-      isFeatured: false
-    }
+    // {
+    //   id: "6",
+    //   name: "Jabón Ganozhi",
+    //   description: "Jabón premium elaborado con Ganoderma para limpieza delicada. Mantiene la piel hidratada y protegida sin resecación.",
+    //   imageSrc: "/images/SC120.jpg",
+    //   productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-personal/jabon-ganozhi",
+    //   isFeatured: false
+    // }
   ];
 
   return (
