@@ -5,12 +5,16 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co', // Permitimos este dominio temporal
+        hostname: 'placehold.co',
         port: '',
         pathname: '/**',
       },
-      // Si más adelante usas imágenes de otro lado (ej: Cloudinary o un CDN),
-      // tendrás que agregarlo aquí también.
+      {
+        protocol: 'https',
+        hostname: '**.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

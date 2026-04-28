@@ -1,17 +1,73 @@
 @import "tailwindcss";
 
 @theme {
-  /* Definimos los colores para que sigan funcionando tus botones y fondos */
+  /* Colores árabe-inspired con calidez y elegancia */
   --color-brand-cream: #FAF3E0;
   --color-brand-brown: #5D4037;
   --color-brand-green: #7CB342;
   --color-brand-gold: #D4AF37;
   --color-brand-gray: #37474F;
-
-
+  
+  /* Colores árabes adicionales */
+  --color-arabic-sand: #E8D5B7;
+  --color-arabic-rust: #8B4513;
+  --color-arabic-rose: #C9627D;
+  --color-arabic-navy: #1a3a52;
+  --color-arabic-sage: #6B8E7F;
 }
 
-  html {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+html {
   /* 1. Activa el deslizamiento suave */
   scroll-behavior: smooth;
   
@@ -33,7 +89,47 @@ body {
 /* --- FUERZA BRUTA PARA TÍTULOS --- */
 /* Esto ataca directamente a las etiquetas H1, H2, etc. y a cualquier cosa con clase font-serif */
 h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: var(--font-playfair), Georgia, 'Times New Roman', serif !important;
+  font-family: 'Georgia', 'Times New Roman', serif !important;
   font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Animaciones reutilizables */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Efecto hover suave para tarjetas */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Borde decorativo árabe */
+.border-arabic {
+  border-image: linear-gradient(135deg, var(--color-brand-gold) 0%, var(--color-arabic-rust) 100%) 1;
+}
+
+/* Patrón de fondo sutil */
+.pattern-geometric {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px);
 }
 

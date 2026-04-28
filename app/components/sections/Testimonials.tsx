@@ -1,87 +1,99 @@
-import Image from "next/image";
 import { Star, Quote } from "lucide-react";
 
-// Datos de prueba (puedes cambiarlos luego)
 const testimonials = [
   {
     id: 1,
     name: "María González",
     role: "Cliente Satisfecha",
-    content: "Desde que comencé a tomar el café con Ganoderma, mi energía mejoró increíblemente. Ya no necesito varias tazas al día y me siento más saludable.",
-    image: "/images/user-1.jpg" // Asegúrate de tener una foto aquí o usa un placeholder
+    content: "Las cremas DXN transformaron mi piel. Desde el primer uso noté la hidratación y suavidad. Mi dermatólogo quedó sorprendido con los resultados.",
+    rating: 5
   },
   {
     id: 2,
     name: "Carlos Ramírez",
-    role: "Emprendedor DXN",
-    content: "DXN cambió mi vida. No solo mejoré mi salud, sino que también encontré una forma de generar ingresos mientras ayudo a otros. ¡Gracias Lo d' Keren!",
-    image: "/images/user-2.jpg"
+    role: "Distribuidor DXN",
+    content: "No solo mejoré mi piel, sino que encontré una oportunidad de negocio real. El apoyo de Lo d' Keren fue fundamental para mi éxito.",
+    rating: 5
   },
   {
     id: 3,
     name: "Ana Martínez",
-    role: "Cliente Frecuente",
-    content: "Los productos son de excelente calidad y el servicio es impecable. La Spirulina se ha convertido en parte esencial de mi rutina diaria.",
-    image: "/images/user-3.jpg"
+    role: "Skincare Expert",
+    content: "Recomiendo las cremas DXN a todas mis clientes. La calidad es incomparable y los resultados visibles en pocas semanas. ¡Excelente!",
+    rating: 5
   }
 ];
 
 const stats = [
-  { value: "500+", label: "Clientes Felices" },
-  { value: "100%", label: "Productos Naturales" },
-  { value: "24/7", label: "Atención Disponible" },
-  { value: "5★", label: "Calificación Promedio" },
+  { value: "500+", label: "Clientes Satisfechos" },
+  { value: "100%", label: "Natural & Orgánico" },
+  { value: "24/7", label: "Soporte Disponible" },
+  { value: "5★", label: "Rating Promedio" },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-brand-cream relative overflow-hidden">
+    <section className="py-20 sm:py-32 bg-gradient-to-b from-white to-brand-cream/20 relative overflow-hidden pattern-geometric">
       <div className="container mx-auto px-4">
         
-        {/* ENCABEZADO */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-brown mb-4">
-            Lo Que Dicen Nuestros Clientes
+        {/* ENCABEZADO CON DECORACIÓN */}
+        <div className="text-center mb-16 sm:mb-20 max-w-3xl mx-auto">
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="bg-brand-gold/10 text-brand-brown px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/30">
+              Historias Reales
+            </span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-brown mb-4 sm:mb-6 leading-tight">
+            Resultados que Hablan
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto font-sans">
-            Historias reales de personas que transformaron su salud y su vida
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+            Testimonios de clientes que transformaron su piel con nuestras cremas dermatológicas premium.
           </p>
         </div>
 
-        {/* TARJETAS DE TESTIMONIOS */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
-          {testimonials.map((item) => (
-            <div key={item.id} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative">
+        {/* TARJETAS DE TESTIMONIOS CON ANIMACIONES */}
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-16 sm:mb-24">
+          {testimonials.map((item, idx) => (
+            <div 
+              key={item.id} 
+              className="group bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-brand-gold/10 hover:border-brand-gold/40 card-hover animate-fade-in-up"
+              style={{ animationDelay: `${idx * 0.2}s` }}
+            >
+              {/* Efecto de gradiente al fondo */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              {/* Ícono de Comillas (Decorativo) */}
-              <div className="absolute top-8 right-8 text-brand-cream opacity-50">
-                <Quote size={40} fill="#FAF3E0" stroke="none"/> {/* Relleno color crema */}
+              {/* Ícono de Comillas */}
+              <div className="absolute top-3 sm:top-6 right-3 sm:right-6 text-brand-gold/20 group-hover:text-brand-gold/40 transition-colors">
+                <Quote size={40} className="sm:w-12 sm:h-12" fill="currentColor" />
               </div>
 
-              {/* Estrellas */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={18} className="fill-brand-gold text-brand-gold" />
-                ))}
-              </div>
-
-              {/* Texto */}
-              <p className="text-gray-600 mb-8 font-sans leading-relaxed relative z-10">
-                "{item.content}"
-              </p>
-
-              {/* Usuario */}
-              <div className="flex items-center gap-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-gold/20">
-                    {/* Placeholder por si no tienes foto aún */}
-                   <div className="w-full h-full bg-gray-200" /> 
-                   {/* Descomenta esto cuando tengas las fotos reales:
-                   <Image src={item.image} alt={item.name} fill className="object-cover" /> 
-                   */}
+              <div className="relative z-10">
+                {/* Estrellas */}
+                <div className="flex gap-1 mb-4 sm:mb-6">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="sm:w-5 sm:h-5 fill-brand-gold text-brand-gold" />
+                  ))}
                 </div>
-                <div>
-                  <h4 className="font-serif font-bold text-brand-brown text-sm">{item.name}</h4>
-                  <p className="text-xs text-brand-gray uppercase tracking-wide">{item.role}</p>
+
+                {/* Texto del Testimonio */}
+                <p className="text-gray-700 mb-6 sm:mb-8 font-sans leading-relaxed text-xs sm:text-sm md:text-base h-20 sm:h-24 overflow-hidden group-hover:text-gray-800 transition-colors">
+                  "{item.content}"
+                </p>
+
+                {/* Divisor */}
+                <div className="w-12 h-1 bg-gradient-to-r from-brand-gold to-brand-brown rounded-full mb-4 sm:mb-6 transform origin-left group-hover:w-20 transition-all duration-500" />
+
+                {/* Usuario */}
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="relative w-12 sm:w-14 h-12 sm:h-14 rounded-full overflow-hidden border-2 border-brand-gold/30 group-hover:border-brand-gold/60 transition-colors flex-shrink-0">
+                    <div className="w-full h-full bg-gradient-to-br from-brand-gold/30 to-brand-brown/30 flex items-center justify-center">
+                      <span className="text-lg sm:text-2xl font-bold text-brand-brown opacity-50">{item.name.charAt(0)}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-brand-brown text-sm sm:text-base group-hover:text-brand-gold transition-colors leading-tight">{item.name}</h4>
+                    <p className="text-xs text-brand-gray uppercase tracking-widest font-bold">{item.role}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,19 +101,18 @@ export default function Testimonials() {
         </div>
 
         {/* BARRA DE ESTADÍSTICAS */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-t border-brand-brown/10 pt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center pt-20 border-t-2 border-brand-gold/20">
           {stats.map((stat, idx) => (
-            <div key={idx} className="space-y-2">
-              <div className="font-serif text-4xl md:text-5xl text-brand-brown font-medium">
+            <div key={idx} className="space-y-3 group animate-scale-in" style={{ animationDelay: `${idx * 0.15}s` }}>
+              <div className="font-serif text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-brown font-bold group-hover:from-brand-brown group-hover:to-brand-gold transition-all duration-300">
                 {stat.value}
               </div>
-              <p className="text-gray-500 font-sans text-sm uppercase tracking-wider">
+              <p className="text-gray-600 font-sans text-sm uppercase tracking-wider group-hover:text-brand-brown transition-colors">
                 {stat.label}
               </p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

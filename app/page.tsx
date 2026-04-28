@@ -8,18 +8,63 @@ import Business from "./components/sections/Business";
 import ProductCard from "./components/cards/ProductCard";
 import Testimonials from "./components/sections/Testimonials";
 import Footer from "./components/layout/Footer";
-import { useCart } from "./context/CartContext";
 
 export default function Home() {
-  const { addToCart } = useCart();
-
-  // Función dummy para el ejemplo
-  const handleAdd = (product: any) => {
-    addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
-  };
+  
+  // Datos de productos con enlaces a Empretienda
+  const products = [
+    {
+      id: "1",
+      name: "DXN Total Moisturizing Cream",
+      description: "Crema hidratante total que penetra profundamente en todas las capas de la piel, proporcionando hidratación integral y duración prolongada.",
+      imageSrc: "/images/SC114.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-total-moisturizing-cream",
+      isFeatured: true
+    },
+    {
+      id: "2",
+      name: "DXN Smoothness and Nourishment Cream",
+      description: "Fórmula especial que suaviza la textura cutánea mientras nutre profundamente con ingredientes naturales certificados.",
+      imageSrc: "/images/SC115.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-smoothness-and-nourishment-cream",
+      isFeatured: true
+    },
+    {
+      id: "3",
+      name: "DXN Maximum Hydration Cream",
+      description: "Máxima hidratación para pieles secas y deshidratadas. Restaura la elasticidad natural y deja la piel radiante y suave.",
+      imageSrc: "/images/SC116.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-maximum-hydration-cream",
+      isFeatured: true
+    },
+    {
+      id: "4",
+      name: "DXN Deep Moisturizing Cream",
+      description: "Crema de hidratación profunda con Ganoderma Lucidum. Ideal para regeneración nocturna y reparación cutánea intensiva.",
+      imageSrc: "/images/SC117.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-deep-moisturizing-cream",
+      isFeatured: true
+    },
+    {
+      id: "5",
+      name: "DXN Ultra Nutritive Cream",
+      description: "Tratamiento nutricional ultra concentrado. Rico en antioxidantes para revitalizar y rejuvenecer tu piel desde adentro.",
+      imageSrc: "/images/SC118.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-ultra-nutritive-cream",
+      isFeatured: false
+    },
+    {
+      id: "6",
+      name: "Jabón Ganozhi",
+      description: "Jabón premium elaborado con Ganoderma para limpieza delicada. Mantiene la piel hidratada y protegida sin resecación.",
+      imageSrc: "/images/SC120.jpg",
+      productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-personal/jabon-ganozhi",
+      isFeatured: false
+    }
+  ];
 
   return (
-    <main className="min-h-screen bg-brand-cream">
+    <main className="min-h-screen bg-white">
       <Navbar />
       
       <Hero />
@@ -29,44 +74,48 @@ export default function Home() {
       <Features />
 
       {/* SECCIÓN PRODUCTOS (CATÁLOGO) */}
-      <section id="productos" className="py-24 bg-white">
+      <section id="productos" className="py-20 sm:py-32 bg-gradient-to-b from-brand-cream/20 to-white pattern-geometric">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-brand-brown mb-2">Nuestros Favoritos DXN</h2>
-            <p className="text-gray-500">Selección premium de productos que transformarán tu estilo de vida</p>
+          
+          {/* Encabezado */}
+          <div className="text-center mb-16 sm:mb-20 max-w-3xl mx-auto">
+            <div className="inline-block mb-3 sm:mb-4">
+              <span className="bg-brand-gold/10 text-brand-brown px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/30">
+                Catálogo de Productos
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-brown mb-4 sm:mb-6 leading-tight">
+              Cremas Dermatológicas Premium
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+              Nuestra selección cuidadosamente curada de productos DXN para el cuidado profesional de tu piel.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Aquí reutilizamos tu componente ProductCard con datos de ejemplo */}
-            <ProductCard
-              id="1" name="Café Lingzhi 3 en 1" price={25.00} imageSrc="/images/prod-cafe.jpg"
-              description="Café instantáneo con Ganoderma, azúcar de caña y crema."
-              isFeatured
-              onAddToCart={() => handleAdd({ id: '1', name: 'Café Lingzhi', price: 25 })}
-            />
-            <ProductCard
-              id="2" name="Spirulina" price={30.00} imageSrc="/images/prod-spirulina.jpg"
-              description="Alga rica en proteínas, vitaminas y minerales."
-              isFeatured
-              onAddToCart={() => handleAdd({ id: '2', name: 'Spirulina', price: 30 })}
-            />
-            <ProductCard
-              id="3" name="Cocozhi" price={22.00} imageSrc="/images/prod-cocozhi.jpg"
-              description="Deliciosa bebida de cacao con Ganoderma."
-              isFeatured
-              onAddToCart={() => handleAdd({ id: '3', name: 'Cocozhi', price: 22 })}
-            />
-            <ProductCard
-              id="4" name="Té Verde" price={20.00} imageSrc="/images/prod-tea.jpg"
-              description="Antioxidantes naturales combinados con Ganoderma."
-              onAddToCart={() => handleAdd({ id: '4', name: 'Té Verde', price: 20 })}
-            />
+          {/* Grid de productos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            {products.map((product) => (
+              <div key={product.id} className="animate-fade-in-up" style={{ animationDelay: `${parseInt(product.id) * 0.1}s` }}>
+                <ProductCard
+                  id={product.id}
+                  name={product.name}
+                  description={product.description}
+                  imageSrc={product.imageSrc}
+                  productUrl={product.productUrl}
+                  isFeatured={product.isFeatured}
+                />
+              </div>
+            ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <button className="border-2 border-brand-brown text-brand-brown px-8 py-3 rounded-lg font-bold hover:bg-brand-brown hover:text-white transition-colors">
-              Ver Catálogo Completo
-            </button>
+          {/* Nota importante */}
+          <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-gradient-to-r from-brand-gold/5 to-brand-brown/5 rounded-2xl border border-brand-gold/20 text-center">
+            <p className="text-gray-700 font-sans leading-relaxed text-sm sm:text-base">
+              Haz clic en cualquier producto para ver más detalles, reseñas y disponibilidad en <strong>Empretienda</strong>.
+              {/* <span className="block mt-4 text-sm text-brand-brown font-bold">
+                💰 Precios especiales disponibles. Consulta en cada producto.
+              </span> */}
+            </p>
           </div>
         </div>
       </section>

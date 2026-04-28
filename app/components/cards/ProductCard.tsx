@@ -1,78 +1,84 @@
 'use client';
 
 import Image from 'next/image';
-import { ShoppingCart, Plus } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 // Definimos qué datos necesita recibir la tarjeta
 interface ProductProps {
   id: string;
   name: string;
   description: string;
-  price: number;
   imageSrc: string;
-  isFeatured?: boolean; // Opcional, para mostrar el badge "Destacado"
-  onAddToCart?: () => void; // Función para manejar el click
+  productUrl?: string; // URL externa a Empretienda
+  isFeatured?: boolean;
 }
 
 export default function ProductCard({
   name,
   description,
-  price,
   imageSrc,
-  isFeatured = false,
-  onAddToCart
+  productUrl,
+  isFeatured = false
 }: ProductProps) {
-  return (
-    <div className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-brand-brown/5 flex flex-col h-full">
+  const CardContent = (
+    <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-brand-brown/10 flex flex-col h-full card-hover">
       
-      {/* 1. Contenedor de Imagen */}
-      <div className="relative aspect-square w-full overflow-hidden bg-gray-50">
-        {/* Badge de Destacado (Solo si isFeatured es true) */}
+      {/* 1. Contenedor de Imagen con Overlay */}
+      <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-brand-cream to-brand-cream/80">
+        {/* Badge de Destacado */}
         {isFeatured && (
-          <span className="absolute top-3 right-3 z-10 bg-brand-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-            Destacado
-          </span>
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10">
+            <span className="bg-gradient-to-r from-brand-gold to-brand-brown text-white text-xs font-bold px-2 sm:px-4 py-1 sm:py-2 rounded-full uppercase tracking-widest shadow-lg transform -rotate-2 hover:rotate-0 transition-transform">
+              Destacado
+            </span>
+          </div>
         )}
         
-        {/* Imagen del Producto con efecto Zoom al pasar el mouse */}
+        {/* Imagen del Producto */}
         <Image
           src={imageSrc}
           alt={name}
           fill
-          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          className="object-cover object-center group-hover:scale-110 transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        
+        {/* Overlay oscuro al pasar el mouse */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-brown/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* 2. Contenedor de Información */}
-      <div className="p-5 flex flex-col flex-grow">
-        <h3 className="font-serif text-xl font-bold text-brand-brown mb-2 leading-tight">
+      <div className="p-4 sm:p-6 flex flex-col flex-grow">
+        <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-brown mb-2 sm:mb-3 leading-tight group-hover:text-brand-gold transition-colors">
           {name}
         </h3>
         
-        <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow font-sans">
+        <p className="text-gray-600 text-xs sm:text-sm line-clamp-4 mb-4 sm:mb-6 flex-grow font-sans leading-relaxed">
           {description}
         </p>
 
-        {/* 3. Footer de la tarjeta: Precio y Botón */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-500 font-sans">Precio</span>
-            <span className="font-serif text-2xl font-medium text-brand-brown">
-              ${price.toLocaleString('es-AR')}
-            </span>
+        {/* 3. Footer: Botón Ver Detalles */}
+        <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-brand-gold/20">
+          <span className="text-xs text-brand-brown font-bold uppercase tracking-wider opacity-70">
+            Conocer más
+          </span>
+          <div className="w-10 h-10 bg-gradient-to-r from-brand-gold to-brand-brown rounded-lg flex items-center justify-center group-hover:from-brand-brown group-hover:to-brand-gold transition-all duration-300 shadow-md">
+            <ArrowRight size={18} className="text-white transform group-hover:translate-x-1 transition-transform" />
           </div>
-
-          <button 
-            onClick={onAddToCart}
-            className="flex items-center gap-2 bg-brand-green hover:bg-[#689F38] text-white px-4 py-2.5 rounded-lg transition-colors duration-200 shadow-sm active:scale-95"
-            aria-label={`Agregar ${name} al carrito`}
-          >
-            <ShoppingCart size={18} />
-            <span className="font-bold text-sm">Comprar</span>
-          </button>
         </div>
       </div>
     </div>
   );
+
+  // Si hay URL, devolvemos como Link, sino como div normal
+  if (productUrl) {
+    return (
+      <Link href={productUrl} target="_blank" rel="noopener noreferrer" className="block">
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return CardContent;
 }
