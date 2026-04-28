@@ -26,25 +26,25 @@ export default function Hero() {
       </div>
 
       {/* 2. CONTENIDO PRINCIPAL CON ANIMACIONES */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-6 sm:mt-10 animate-fade-in-up">
+      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-4xl mx-auto mt-6 sm:mt-10 animate-fade-in-up w-full overflow-hidden">
         
         {/* Etiqueta decorativa */}
-        <div className="mb-6 sm:mb-8 inline-block">
-          <span className="bg-brand-gold/20 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/40">
+        <div className="mb-6 sm:mb-8 inline-block px-2">
+          <span className="bg-brand-gold/20 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/40 block overflow-hidden text-ellipsis">
             ✨ Belleza Natural & Cuidado Dermatológico
           </span>
         </div>
 
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl text-white mb-6 sm:mb-8 leading-tight drop-shadow-xl">
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl text-white mb-6 sm:mb-8 leading-tight drop-shadow-xl break-words">
           Cremas Premium para <br /> tu Piel Perfecta
         </h1>
         
-        <p className="text-gray-50 text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto font-sans font-light drop-shadow-lg leading-relaxed">
+        <p className="text-gray-50 text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto font-sans font-light drop-shadow-lg leading-relaxed break-words px-2">
           Descubre la fusión perfecta entre la tradición árabe y la ciencia moderna. Nuestras cremas dermatológicas DXN transforman tu piel con ingredientes 100% naturales y certificados.
         </p>
         
         {/* BOTONES CON EFECTO HOVER */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-right">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-right px-2">
           {/* Botón Principal */}
           <Link href="#productos">
             <button className="relative group bg-gradient-to-r from-brand-gold to-brand-brown text-white px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-xl overflow-hidden">

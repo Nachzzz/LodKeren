@@ -73,7 +73,10 @@ html {
   
   /* 2. El Truco del Navbar: */
   /* Esto deja un espacio arriba al hacer scroll para que el Navbar no tape el título */
-  scroll-padding-top: 100px; 
+  scroll-padding-top: 100px;
+  
+  /* 3. Previene overflow horizontal en móviles */
+  overflow-x: hidden;
 }
 
 :root {
@@ -84,6 +87,11 @@ html {
 body {
   /* Forzamos la fuente Lato (Sans) para todo el cuerpo */
   font-family: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Previene overflow horizontal */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* --- FUERZA BRUTA PARA TÍTULOS --- */
@@ -109,6 +117,29 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Asegurar que no hay overflow horizontal */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Evitar overflow en imágenes y elementos media */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Asegurar que los elementos no causen scroll horizontal */
+section {
+  overflow-x: hidden;
 }
 
 /* Efecto hover suave para tarjetas */

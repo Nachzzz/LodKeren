@@ -64,7 +64,7 @@ export default function RootLayout({
         <CartProvider>
           {children}
           {/* Agregamos el Carrito Flotante aquí para que esté en todas las pantallas */}
-          <FloatingCart />
+          {/* <FloatingCart /> */}
         </CartProvider>
       </body>
     </html>

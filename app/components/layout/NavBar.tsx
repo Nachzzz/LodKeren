@@ -9,11 +9,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-gradient-to-r from-brand-cream via-brand-cream to-white border-b-2 border-brand-gold/20 shadow-lg backdrop-blur-md bg-opacity-95">
-      <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4">
+    <nav className="sticky top-0 z-50 bg-gradient-to-r from-brand-cream via-brand-cream to-white border-b-2 border-brand-gold/20 shadow-lg backdrop-blur-md bg-opacity-95 w-full">
+      <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4 w-full">
         
         {/* BARRA SUPERIOR */}
-        <div className="flex items-center justify-between gap-4 sm:gap-8">
+        <div className="flex items-center justify-between gap-4 sm:gap-8 w-full min-w-0">
           
           {/* LOGO CON HOVER */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 z-50 group flex-shrink-0">
@@ -68,7 +68,7 @@ export default function Navbar() {
 
       {/* MENÚ MÓVIL DESPLEGABLE */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-gradient-to-b from-brand-cream to-white border-b-2 border-brand-gold/20 shadow-2xl py-6 px-4 flex flex-col gap-1 animate-fade-in-up">
+        <div className="lg:hidden absolute top-full left-0 right-0 w-screen bg-gradient-to-b from-brand-cream to-white border-b-2 border-brand-gold/20 shadow-2xl py-6 px-4 flex flex-col gap-1 animate-fade-in-up">
           
           <Link 
             href="#inicio" 
