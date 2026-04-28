@@ -30,7 +30,7 @@ export default function Hero() {
         
         {/* Etiqueta decorativa */}
         <div className="mb-6 sm:mb-8 inline-block">
-          <span className="bg-brand-gold/20 text-brand-brown px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/40">
+          <span className="bg-brand-gold/20 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/40">
             ✨ Belleza Natural & Cuidado Dermatológico
           </span>
         </div>
