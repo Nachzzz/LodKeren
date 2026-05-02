@@ -53,7 +53,7 @@ export default function ProductCard(product: Product) {
             {name}
           </h3>
           <div className="text-right flex-shrink-0">
-            <p className="text-xl font-bold text-brand-gold">${price.toFixed(2)}</p>
+            {/* <p className="text-xl font-bold text-brand-gold">${price.toFixed(2)}</p> */}
             <p className="text-[10px] sm:text-xs text-gray-600 font-semibold bg-brand-cream px-2 py-0.5 rounded-full inline-block mt-1">{size}</p>
           </div>
         </div>
