@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="nosotros" className="py-16 sm:py-24 bg-gradient-to-b from-white to-brand-cream/30 pattern-geometric">
+    <section id="nosotros" className="py-16 sm:py-24 bg-gradient-to-b from-white to-brand-cream/30">
       <div className="container mx-auto px-4">
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
