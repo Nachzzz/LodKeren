@@ -23,7 +23,7 @@ export default function Home() {
       <Features />
 
       {/* SECCIÓN PRODUCTOS (CATÁLOGO) */}
-      <section id="productos" className="py-20 sm:py-32 bg-gradient-to-b from-brand-cream/20 to-white pattern-geometric">
+      <section id="productos" className="py-20 sm:py-32 bg-gradient-to-b from-brand-cream/20 to-white">
         <div className="container mx-auto px-4">
           
           {/* Encabezado */}
