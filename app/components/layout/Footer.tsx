@@ -7,20 +7,21 @@ export default function Footer() {
     <footer className="bg-gradient-to-b from-brand-brown to-[#4D2E29] text-white pt-16 sm:pt-24 pb-8 sm:pb-12 border-t-2 border-brand-gold/30 relative overflow-hidden">
       {/* Patrón decorativo de fondo */}
       <div className="absolute inset-0 pattern-geometric opacity-10" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        
+
         {/* --- PARTE SUPERIOR (4 COLUMNAS) --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          
+
           {/* Columna 1: Marca y Logo */}
           <div className="space-y-6">
             <div className="bg-white/10 p-3 rounded-xl inline-block w-24 sm:w-28 h-24 sm:h-28 relative border-2 border-brand-gold/30 hover:border-brand-gold/60 transition-colors">
-              <Image 
-                src="/images/logo.png" 
-                alt="Lo d' Keren" 
+              <Image
+                src="/images/logo.png"
+                alt="Logo Lo d Keren"
                 fill
-                className="object-contain p-2"
+                className="object-contain"
+                sizes="(max-width: 768px) 150px, 200px" // Le dice que en móviles ocupa unos 150px y en PC 200px
               />
             </div>
             <div className="space-y-2">

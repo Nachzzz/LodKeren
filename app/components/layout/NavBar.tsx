@@ -11,18 +11,19 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-r from-brand-cream via-brand-cream to-white border-b-2 border-brand-gold/20 shadow-lg backdrop-blur-md bg-opacity-95 w-full">
       <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4 w-full">
-        
+
         {/* BARRA SUPERIOR */}
         <div className="flex items-center justify-between gap-4 sm:gap-8 w-full min-w-0">
-          
+
           {/* LOGO CON HOVER */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 z-50 group flex-shrink-0">
             <div className="relative w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-br from-brand-gold/20 to-brand-brown/10 rounded-xl p-2 group-hover:from-brand-gold/30 group-hover:to-brand-brown/20 transition-all duration-300 border border-brand-gold/30">
-              <Image 
-                src="/images/logo.png" 
-                alt="Lo d' Keren" 
+              <Image
+                src="/images/logo.png"
+                alt="Logo Lo d Keren"
                 fill
-                className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+                className="object-contain"
+                sizes="(max-width: 768px) 150px, 200px" // Le dice que en móviles ocupa unos 150px y en PC 200px
               />
             </div>
             <span className="hidden sm:block font-serif text-base sm:text-lg font-bold text-brand-brown group-hover:text-brand-gold transition-colors">Lo d' Keren</span>
@@ -57,8 +58,8 @@ export default function Navbar() {
           </Link>
 
           {/* BOTÓN HAMBURGUESA (Móvil) */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
+          <button
+            onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-brand-brown hover:text-brand-gold transition-colors z-50 focus:outline-none p-2 hover:bg-brand-cream/50 rounded-lg flex-shrink-0"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -69,31 +70,31 @@ export default function Navbar() {
       {/* MENÚ MÓVIL DESPLEGABLE */}
       {isOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 w-screen bg-gradient-to-b from-brand-cream to-white border-b-2 border-brand-gold/20 shadow-2xl py-6 px-4 flex flex-col gap-1 animate-fade-in-up">
-          
-          <Link 
-            href="#inicio" 
-            onClick={() => setIsOpen(false)} 
+
+          <Link
+            href="#inicio"
+            onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Inicio
           </Link>
-          <Link 
-            href="#nosotros" 
-            onClick={() => setIsOpen(false)} 
+          <Link
+            href="#nosotros"
+            onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Sobre Nosotros
           </Link>
-          <Link 
-            href="#productos" 
-            onClick={() => setIsOpen(false)} 
+          <Link
+            href="#productos"
+            onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Productos
           </Link>
-          <Link 
-            href="#negocio" 
-            onClick={() => setIsOpen(false)} 
+          <Link
+            href="#negocio"
+            onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Negocio
