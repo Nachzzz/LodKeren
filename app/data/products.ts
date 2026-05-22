@@ -15,6 +15,7 @@ export interface Product {
   usage: string;
   dermatologicalInfo: string;
   productUrl?: string;
+  whatsappUrl?: string;
 }
 
 export const products: Product[] = [
@@ -25,6 +26,7 @@ export const products: Product[] = [
     imageSrc: "/images/SC120.jpg",
     isFeatured: true,
     productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-total-moisturizing-cream",
+    whatsappUrl: "https://wa.me/p/26968814119419163/5493873698636",
     benefits: [
       "Hidratación integral en todas las capas de la piel",
       "Absorción rápida sin residuo graso",
@@ -52,6 +54,7 @@ export const products: Product[] = [
     imageSrc: "/images/SC121.jpg",
     isFeatured: true,
     productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-smoothness-and-nourishment-cream",
+    whatsappUrl: "https://wa.me/p/26554409934227351/5493873698636",
     benefits: [
       "Suavidad y textura sedosa",
       "Regeneración celular profunda",
@@ -79,6 +82,7 @@ export const products: Product[] = [
     imageSrc: "/images/SC119.jpg",
     isFeatured: true,
     productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-maximum-hydration-cream",
+    whatsappUrl: "https://wa.me/p/27120030877622918/5493873698636",
     benefits: [
       "Hidratación máxima y prolongada",
       "Restaura elasticidad y firmeza",
@@ -106,6 +110,7 @@ export const products: Product[] = [
     imageSrc: "/images/SC118.jpg",
     isFeatured: true,
     productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-deep-moisturizing-cream",
+    whatsappUrl: "https://wa.me/p/26330387506660470/5493873698636",
     benefits: [
       "Regeneración y reparación nocturna profunda",
       "Hidratación intensiva",
@@ -133,6 +138,7 @@ export const products: Product[] = [
     imageSrc: "/images/SC117.jpg",
     isFeatured: false,
     productUrl: "https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-ultra-nutritive-cream",
+    whatsappUrl: "https://wa.me/p/26316782811355179/5493873698636",
     benefits: [
       "Nutrición ultra concentrada",
       "Antioxidantes potentes",

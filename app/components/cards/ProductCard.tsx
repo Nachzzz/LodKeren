@@ -7,7 +7,7 @@ import type { Product } from '@/app/data/products';
 
 export default function ProductCard(product: Product) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { name, description, imageSrc, isFeatured = false, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo } = product;
+  const { name, description, imageSrc, isFeatured = false, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo, whatsappUrl } = product;
 
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -135,7 +135,12 @@ export default function ProductCard(product: Product) {
             {/* Botones de acción */}
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
               <button 
-                onClick={(e) => e.stopPropagation()} 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (whatsappUrl) {
+                    window.open(whatsappUrl, '_blank');
+                  }
+                }} 
                 className="flex-1 bg-gradient-to-r from-brand-gold to-brand-brown text-white font-bold py-2.5 rounded-lg hover:shadow-lg transition-all duration-300 text-sm active:scale-95 transform-gpu"
               >
                 📞 Consultar
