@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 
 export default function About() {
@@ -8,19 +9,14 @@ export default function About() {
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           
-          {/* IMAGEN DESTACADA CON MARCO ÁRABE */}
+          {/* IMAGEN DESTACADA CON CARRUSEL */}
           <div className="relative order-2 md:order-1">
             <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-brand-gold/30">
-              <Image
-                src="/images/Cremas2.png"
-                alt="Colección de cremas DXN"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
+              <AboutCarousel />
               {/* Overlay decorativo */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-brown/20 to-transparent" />
             </div>
-            
+
             {/* Elemento decorativo flotante */}
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl animate-float" />
           </div>
@@ -39,16 +35,16 @@ export default function About() {
               </h2>
             </div>
 
-            {/* Descripción principal */}
+            {/* Descripción principal actualizada */}
             <div className="space-y-4 sm:space-y-5 text-gray-700 font-sans leading-relaxed text-sm sm:text-base md:text-lg">
               <p>
-                En <strong className="text-brand-brown">Lo d' Keren</strong>, fusionamos la sabiduría de la cosmética árabe tradicional con la innovación científica de DXN. Cada crema es formulada con ingredientes naturales certificados para transformar tu piel.
+                En <strong className="text-brand-brown">Lo d' Keren</strong> presentamos una experiencia DXN más amplia: mantenemos nuestras líneas de cosmética de alta gama y sumamos bebidas funcionales (café, cacao, tés) y suplementos para el bienestar integral.
               </p>
               <p>
-                Nuestros productos dermatológicos están diseñados para responder a las necesidades específicas de tu piel: desde hidratación profunda hasta tratamientos anti-edad y reparación cutánea.
+                Este espacio reúne productos pensados para consumo diario y para quienes buscan emprender: calidad certificada, ingredientes naturales y fórmulas respaldadas científicamente.
               </p>
               <p>
-                Creemos que la belleza verdadera viene del cuidado responsable, sostenible y 100% natural.
+                Además de salud y belleza, ofrecemos una propuesta comercial clara: formación, soporte y un modelo económico escalable que ya está dando resultados a distribuidores locales.
               </p>
             </div>
 
@@ -84,3 +80,36 @@ export default function About() {
     </section>
   );
 }
+
+  function AboutCarousel() {
+    const images = [
+      "/images/Cremas2.png",
+      "/images/cafe3en1.jpg",
+      "/images/Cocoshii.jpg",
+    ];
+
+    const [idx, setIdx] = useState(0);
+
+    useEffect(() => {
+      const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 4500);
+      return () => clearInterval(id);
+    }, []);
+
+    return (
+      <div className="absolute inset-0">
+        {images.map((src, i) => (
+          <div key={src} className={`absolute inset-0 transition-opacity duration-800 ${i === idx ? "opacity-100" : "opacity-0"}`}>
+            <div className="w-full h-full flex items-center justify-center bg-gray-50 p-4">
+              <Image src={src} alt={`About slide ${i + 1}`} fill className="object-contain object-center" priority={i === 0} />
+            </div>
+          </div>
+        ))}
+
+        <div className="absolute left-4 bottom-4 z-20 flex gap-2">
+          {images.map((_, i) => (
+            <button key={i} onClick={() => setIdx(i)} className={`w-2 h-2 rounded-full ${i === idx ? "bg-white" : "bg-white/40"}`} aria-label={`Ir a imagen ${i + 1}`} />
+          ))}
+        </div>
+      </div>
+    );
+  }

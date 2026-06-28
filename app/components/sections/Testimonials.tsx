@@ -5,21 +5,28 @@ const testimonials = [
     id: 1,
     name: "María González",
     role: "Cliente Satisfecha",
-    content: "Las cremas DXN transformaron mi piel. Desde el primer uso noté la hidratación y suavidad. Mi dermatólogo quedó sorprendido con los resultados.",
-    rating: 5
+    location: "Tartagal, Argentina",
+    photoSrc: "/images/testimonial-maria.jpg",
+    content: "Las cremas DXN transformaron mi piel. Desde el primer uso noté la hidratación y suavidad. Mi familia notó la diferencia.",
+    rating: 5,
+    videoUrl: "https://youtu.be/example"
   },
   {
     id: 2,
     name: "Carlos Ramírez",
     role: "Distribuidor DXN",
-    content: "No solo mejoré mi piel, sino que encontré una oportunidad de negocio real. El apoyo de Lo d' Keren fue fundamental para mi éxito.",
+    location: "Salta, Argentina",
+    photoSrc: "/images/testimonial-carlos.jpg",
+    content: "No solo mejoré mi bienestar, sino que encontré una oportunidad de negocio con apoyo real. El equipo de Lo d' Keren me ayudó a crecer.",
     rating: 5
   },
   {
     id: 3,
     name: "Ana Martínez",
-    role: "Skincare Expert",
-    content: "Recomiendo las cremas DXN a todas mis clientes. La calidad es incomparable y los resultados visibles en pocas semanas. ¡Excelente!",
+    role: "Asesora de Salud",
+    location: "Buenos Aires, Argentina",
+    photoSrc: "/images/testimonial-ana.jpg",
+    content: "Recomiendo DXN a todas mis clientas. La calidad es excelente y los resultados se ven rápido. Ideal para quienes buscan salud y negocio.",
     rating: 5
   }
 ];
@@ -85,16 +92,28 @@ export default function Testimonials() {
 
                 {/* Usuario */}
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="relative w-12 sm:w-14 h-12 sm:h-14 rounded-full overflow-hidden border-2 border-brand-gold/30 group-hover:border-brand-gold/60 transition-colors flex-shrink-0">
-                    <div className="w-full h-full bg-gradient-to-br from-brand-gold/30 to-brand-brown/30 flex items-center justify-center">
-                      <span className="text-lg sm:text-2xl font-bold text-brand-brown opacity-50">{item.name.charAt(0)}</span>
-                    </div>
+                  <div className="relative w-12 sm:w-14 h-12 sm:h-14 rounded-full overflow-hidden border-2 border-brand-gold/30 group-hover:border-brand-gold/60 transition-colors flex-shrink-0 bg-brand-cream/80">
+                    {item.photoSrc ? (
+                      <img src={item.photoSrc} alt={item.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-brand-gold/30 to-brand-brown/30 flex items-center justify-center">
+                        <span className="text-lg sm:text-2xl font-bold text-brand-brown opacity-50">{item.name.charAt(0)}</span>
+                      </div>
+                    )}
                   </div>
-                  <div>
+                  <div className="text-left">
                     <h4 className="font-serif font-bold text-brand-brown text-sm sm:text-base group-hover:text-brand-gold transition-colors leading-tight">{item.name}</h4>
                     <p className="text-xs text-brand-gray uppercase tracking-widest font-bold">{item.role}</p>
+                    {item.location && <p className="text-[11px] text-gray-500 mt-1">{item.location}</p>}
                   </div>
                 </div>
+                {item.videoUrl && (
+                  <div className="mt-4">
+                    <a href={item.videoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-brown hover:text-brand-gold transition-colors">
+                      🎥 Ver Testimonio en Video
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

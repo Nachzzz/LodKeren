@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo, useState } from 'react';
 import Navbar from "./components/layout/NavBar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
@@ -11,6 +12,18 @@ import Footer from "./components/layout/Footer";
 import { products } from "./data/products";
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState('Todos');
+
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    products.forEach(p => set.add(p.category || 'Otros'));
+    return ['Todos', ...Array.from(set)];
+  }, []);
+
+  const filtered = useMemo(() => {
+    if (selectedCategory === 'Todos') return products;
+    return products.filter(p => p.category === selectedCategory);
+  }, [selectedCategory]);
 
   return (
     <main className="min-h-screen bg-white w-full overflow-x-hidden">
@@ -21,6 +34,8 @@ export default function Home() {
       <About />
 
       <Features />
+
+      <Business />
 
       {/* SECCIÓN PRODUCTOS (CATÁLOGO) */}
       <section id="productos" className="py-20 sm:py-32 bg-gradient-to-b from-brand-cream/20 to-white">
@@ -33,17 +48,26 @@ export default function Home() {
                 Catálogo de Productos
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-brown mb-4 sm:mb-6 leading-tight">
-              Cremas Dermatológicas Premium
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-brand-brown mb-3 sm:mb-4 leading-tight">
+              Productos DXN — Salud, Suplementos y Cosmética
             </h2>
             <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-              Nuestra selección cuidadosamente curada de productos DXN para el cuidado profesional de tu piel.
+              Explora nuestras categorías: café, cacao, Ganoderma, suplementos y cosmética. Filtra por categoría para ver lo que buscas.
             </p>
+          </div>
+
+          {/* Filtros por categoría */}
+          <div className="flex flex-wrap gap-3 justify-center mb-8">
+            {categories.map(cat => (
+              <button key={cat} onClick={() => setSelectedCategory(cat)} className={`px-3 py-2 rounded-full text-sm font-semibold ${selectedCategory===cat? 'bg-brand-brown text-white': 'bg-gray-100 text-gray-700'}`}>
+                {cat}
+              </button>
+            ))}
           </div>
 
           {/* Grid de productos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {products.map((product) => (
+            {filtered.map((product) => (
               <div key={product.id} className="animate-fade-in-up" style={{ animationDelay: `${parseInt(product.id) * 0.1}s` }}>
                 <ProductCard {...product} />
               </div>
@@ -62,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Business />
+      {/* <Business /> */}
 
       <Testimonials />
 

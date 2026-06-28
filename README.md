@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Notas del proyecto
+
+- Las nuevas categorías de productos ya están habilitadas en `app/page.tsx` con filtros por categoría.
+- Los nuevos productos de café, cacao y suplementos usan rutas de imagen temporales. Reemplaza los valores en `app/data/products.ts` cuando subas las imágenes definitivas a `public/images`.
+- El formulario hero guarda los leads localmente en `localStorage` para pruebas rápidas. Para producción, conecta esa lógica a un backend o a un servicio de CRM.

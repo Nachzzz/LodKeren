@@ -7,7 +7,7 @@ import type { Product } from '@/app/data/products';
 
 export default function ProductCard(product: Product) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { name, description, imageSrc, isFeatured = false, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo, whatsappUrl } = product;
+  const { name, description, imageSrc, isFeatured = false, category, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo, whatsappUrl } = product;
 
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -48,12 +48,18 @@ export default function ProductCard(product: Product) {
 
       {/* 2. Información Principal (Siempre visible) */}
       <div className="p-4 sm:p-6 flex flex-col flex-grow bg-white z-10 transform-gpu">
-        <div className="flex justify-between items-start mb-2 sm:mb-3">
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-brown leading-tight group-hover:text-brand-gold transition-colors duration-300 pr-2">
-            {name}
-          </h3>
+        <div className="flex justify-between items-start mb-2 sm:mb-3 gap-3">
+          <div className="min-w-0">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-brown leading-tight group-hover:text-brand-gold transition-colors duration-300 pr-2">
+              {name}
+            </h3>
+            {category && (
+              <p className="mt-2 text-[10px] sm:text-xs text-brand-brown/80 font-semibold bg-brand-cream/80 px-2 py-1 rounded-full inline-block uppercase tracking-[0.18em]">
+                {category}
+              </p>
+            )}
+          </div>
           <div className="text-right flex-shrink-0">
-            {/* <p className="text-xl font-bold text-brand-gold">${price.toFixed(2)}</p> */}
             <p className="text-[10px] sm:text-xs text-gray-600 font-semibold bg-brand-cream px-2 py-0.5 rounded-full inline-block mt-1">{size}</p>
           </div>
         </div>
