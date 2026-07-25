@@ -77,14 +77,16 @@ export default function Hero() {
         </div>
 
         {/* Formulario de captura simple */}
-        <div className="mt-6 sm:mt-8 max-w-xl mx-auto">
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tu nombre" className="w-full sm:w-1/3 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70" />
-            <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo electrónico" type="email" required className="w-full sm:w-1/3 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70" />
-            <button type="submit" className="w-full sm:w-auto bg-white text-brand-brown font-bold px-6 py-3 rounded-lg">Recibir guía gratuita</button>
-          </form>
-          {submitted && <p className="mt-3 text-sm text-green-100">Gracias — revisaremos tu info pronto.</p>}
-        </div>
+        {false && (
+          <div className="mt-6 sm:mt-8 max-w-xl mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tu nombre" className="w-full sm:w-1/3 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70" />
+              <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo electrónico" type="email" required className="w-full sm:w-1/3 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70" />
+              <button type="submit" className="w-full sm:w-auto bg-white text-brand-brown font-bold px-6 py-3 rounded-lg">Recibir guía gratuita</button>
+            </form>
+            {submitted && <p className="mt-3 text-sm text-green-100">Gracias — revisaremos tu info pronto.</p>}
+          </div>
+        )}
 
         {/* Indicador de scroll sutil */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">

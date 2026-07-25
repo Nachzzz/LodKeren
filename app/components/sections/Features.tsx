@@ -38,7 +38,7 @@ export default function Features() {
             Cuidado Dermatológico <br /> de Excelencia
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Nuestras cremas DXN combinan la tradición milenaria árabe con ciencia de punta para transformar tu piel.
+            Nuestras cremas DXN combinan la tradición milenaria con ciencia de punta para transformar tu piel.
           </p>
         </div>
 

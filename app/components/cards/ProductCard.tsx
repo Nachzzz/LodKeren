@@ -9,6 +9,11 @@ export default function ProductCard(product: Product) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { name, description, imageSrc, isFeatured = false, category, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo, whatsappUrl } = product;
 
+  const fallbackWhatsappPhone = '5493873698636';
+  const whatsappLink = whatsappUrl?.trim()
+    ? whatsappUrl
+    : `https://wa.me/${fallbackWhatsappPhone}?text=${encodeURIComponent(`Hola! Quisiera consultar por el producto: ${name}`)}`;
+
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsExpanded(false);
@@ -143,9 +148,7 @@ export default function ProductCard(product: Product) {
               <button 
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (whatsappUrl) {
-                    window.open(whatsappUrl, '_blank');
-                  }
+                  window.open(whatsappLink, '_blank');
                 }} 
                 className="flex-1 bg-gradient-to-r from-brand-gold to-brand-brown text-white font-bold py-2.5 rounded-lg hover:shadow-lg transition-all duration-300 text-sm active:scale-95 transform-gpu"
               >

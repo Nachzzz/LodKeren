@@ -21,8 +21,25 @@ export default function Home() {
   }, []);
 
   const filtered = useMemo(() => {
-    if (selectedCategory === 'Todos') return products;
-    return products.filter(p => p.category === selectedCategory);
+    const priority = (category?: string) => {
+      if (category === 'Café') return 0;
+      if (category === 'Té') return 1;
+      if (category === 'Cacao') return 2;
+      if (category === 'Cosmética') return 3;
+      return 4;
+    };
+
+    const sortProducts = (a: typeof products[number], b: typeof products[number]) => {
+      const priorityDiff = priority(a.category) - priority(b.category);
+      if (priorityDiff !== 0) return priorityDiff;
+      return a.name.localeCompare(b.name, 'es', { sensitivity: 'base' });
+    };
+
+    const selected = selectedCategory === 'Todos'
+      ? products
+      : products.filter(p => p.category === selectedCategory);
+
+    return [...selected].sort(sortProducts);
   }, [selectedCategory]);
 
   return (
