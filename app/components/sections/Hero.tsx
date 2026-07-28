@@ -47,7 +47,7 @@ export default function Hero() {
         {/* Etiqueta decorativa */}
         <div className="mb-6 sm:mb-8 inline-block px-2">
           <span className="bg-brand-gold/20 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/40 block overflow-hidden text-ellipsis">
-            DXN • Salud, Bienestar y Oportunidad
+            • Salud, Bienestar y Oportunidad •
           </span>
         </div>
 
@@ -56,24 +56,24 @@ export default function Hero() {
         </h1>
 
         <p className="text-gray-50 text-sm sm:text-base md:text-lg lg:text-xl mb-6 max-w-2xl mx-auto font-sans font-light drop-shadow-lg leading-relaxed break-words px-2">
-          Productos naturales (café, cacao, Ganoderma y suplementos) y una oportunidad de negocio internacional. Elige tu camino y comienza hoy.
+          Productos naturales y una oportunidad de negocio internacional. Elige tu camino y comienza hoy.
         </p>
 
         {/* BOTONES CON EFECTO HOVER */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-right px-2">
-          <Link href="#productos">
+          {/* <Link href="#productos">
             <button className="relative group bg-gradient-to-r from-brand-gold to-brand-brown text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-xl overflow-hidden">
               <span className="relative z-10 flex items-center justify-center gap-2">
                 🛒 Quiero mejorar mi salud
               </span>
             </button>
-          </Link>
+          </Link> */}
 
-          <Link href="#negocio">
+          {/* <Link href="#negocio">
             <button className="relative group border-2 border-white text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
               <span className="relative z-10">🤝 Quiero generar ingresos</span>
             </button>
-          </Link>
+          </Link> */}
         </div>
 
         {/* Formulario de captura simple */}
@@ -89,11 +89,11 @@ export default function Hero() {
         )}
 
         {/* Indicador de scroll sutil */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <svg className="w-6 h-6 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </div>
+        </div> */}
       </div>
     </section>
   );

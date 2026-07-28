@@ -1,113 +1,108 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import Navbar from "./components/layout/NavBar";
+import Link from "next/link";
+import { ArrowRight, Leaf, Sparkles, TrendingUp } from "lucide-react";
+import SiteLayout from "./components/layout/SiteLayout";
 import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
 import Features from "./components/sections/Features";
-import Business from "./components/sections/Business";
-import ProductCard from "./components/cards/ProductCard";
 import Testimonials from "./components/sections/Testimonials";
-import Footer from "./components/layout/Footer";
-import { products } from "./data/products";
 
-export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
+const highlights = [
+	{
+		title: "Productos",
+		description:
+			"Explora café, cacao, suplementos y cosmética en un catálogo organizado por categorías.",
+		href: "/productos",
+		icon: Leaf,
+	},
+	{
+		title: "Nosotros",
+		description:
+			"Conoce la historia, los ingredientes y la propuesta de bienestar de Lo d' Keren.",
+		href: "/nosotros",
+		icon: Sparkles,
+	},
+	{
+		title: "Negocio",
+		description:
+			"Descubre cómo convertir salud, confianza y comunidad en una oportunidad de ingresos.",
+		href: "/negocio",
+		icon: TrendingUp,
+	},
+];
 
-  const categories = useMemo(() => {
-    const set = new Set<string>();
-    products.forEach(p => set.add(p.category || 'Otros'));
-    return ['Todos', ...Array.from(set)];
-  }, []);
+export default function HomePage() {
+	return (
+		<SiteLayout>
+			<main className="min-h-screen bg-white w-full overflow-x-hidden">
+				<Hero />
 
-  const filtered = useMemo(() => {
-    const priority = (category?: string) => {
-      if (category === 'Café') return 0;
-      if (category === 'Té') return 1;
-      if (category === 'Cacao') return 2;
-      if (category === 'Cosmética') return 3;
-      return 4;
-    };
+				<section className="py-20 sm:py-28 bg-gradient-to-b from-white via-brand-cream/20 to-white">
+					<div className="container mx-auto px-4">
+						<div className="rounded-[2rem] border border-brand-gold/20 bg-gradient-to-br from-brand-brown via-[#7a5b44] to-brand-brown p-8 shadow-xl sm:p-10 lg:p-14">
+							<div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+								<div className="text-white">
+									<span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-brand-cream">
+										Café y Té de Excelencia
+									</span>
+									<h2 className="mt-5 font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">
+										Bebidas funcionales para acompañar tu día y potenciar tu
+										bienestar
+									</h2>
+									<p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-cream/90 sm:text-base md:text-lg">
+										En Lo d' Keren destacamos productos de café y té pensados
+										para quienes buscan una opción más natural, práctica y con
+										identidad. Ideal para disfrutar en casa, compartir con
+										amigos o incorporar a una rutina diaria con propósito.
+									</p>
 
-    const sortProducts = (a: typeof products[number], b: typeof products[number]) => {
-      const priorityDiff = priority(a.category) - priority(b.category);
-      if (priorityDiff !== 0) return priorityDiff;
-      return a.name.localeCompare(b.name, 'es', { sensitivity: 'base' });
-    };
+									<div className="mt-8 flex flex-wrap gap-3">
+										<Link
+											href="/productos"
+											className="rounded-full bg-white px-5 py-3 font-semibold text-brand-brown transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+										>
+											Ver productos
+										</Link>
+										{/* <Link
+											href="/negocio"
+											className="rounded-full border border-white/30 bg-white/10 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-white/20"
+										>
+											Conocer la oportunidad
+										</Link> */}
+									</div>
+								</div>
 
-    const selected = selectedCategory === 'Todos'
-      ? products
-      : products.filter(p => p.category === selectedCategory);
+								<div className="rounded-[1.5rem] border border-white/20 bg-white/10 p-5 backdrop-blur-sm sm:p-6">
+									<div className="space-y-4">
+										<div className="rounded-2xl border border-white/15 bg-white/15 p-4">
+											<h3 className="font-serif text-xl text-white">
+												Café con propósito
+											</h3>
+											<p className="mt-2 text-sm leading-relaxed text-brand-cream/90">
+												Una bebida diaria que combina practicidad, sabor y una
+												propuesta diferente para quienes quieren cuidar su estilo
+												de vida.
+											</p>
+										</div>
+										<div className="rounded-2xl border border-white/15 bg-white/15 p-4">
+											<h3 className="font-serif text-xl text-white">
+												Té para disfrutar y compartir
+											</h3>
+											<p className="mt-2 text-sm leading-relaxed text-brand-cream/90">
+												Opciones ideales para momentos de pausa, bienestar y
+												conexión, con un enfoque natural y elegante.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
-    return [...selected].sort(sortProducts);
-  }, [selectedCategory]);
-
-  return (
-    <main className="min-h-screen bg-white w-full overflow-x-hidden">
-      <Navbar />
-      
-      <Hero />
-
-      <About />
-
-      <Features />
-
-      <Business />
-
-      {/* SECCIÓN PRODUCTOS (CATÁLOGO) */}
-      <section id="productos" className="py-20 sm:py-32 bg-gradient-to-b from-brand-cream/20 to-white">
-        <div className="container mx-auto px-4">
-          
-          {/* Encabezado */}
-          <div className="text-center mb-16 sm:mb-20 max-w-3xl mx-auto">
-            <div className="inline-block mb-3 sm:mb-4">
-              <span className="bg-brand-gold/10 text-brand-brown px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border border-brand-gold/30">
-                Catálogo de Productos
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-brand-brown mb-3 sm:mb-4 leading-tight">
-              Productos DXN — Salud, Suplementos y Cosmética
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-              Explora nuestras categorías: café, cacao, Ganoderma, suplementos y cosmética. Filtra por categoría para ver lo que buscas.
-            </p>
-          </div>
-
-          {/* Filtros por categoría */}
-          <div className="flex flex-wrap gap-3 justify-center mb-8">
-            {categories.map(cat => (
-              <button key={cat} onClick={() => setSelectedCategory(cat)} className={`px-3 py-2 rounded-full text-sm font-semibold ${selectedCategory===cat? 'bg-brand-brown text-white': 'bg-gray-100 text-gray-700'}`}>
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Grid de productos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {filtered.map((product) => (
-              <div key={product.id} className="animate-fade-in-up" style={{ animationDelay: `${parseInt(product.id) * 0.1}s` }}>
-                <ProductCard {...product} />
-              </div>
-            ))}
-          </div>
-
-          {/* Nota importante */}
-          <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-gradient-to-r from-brand-gold/5 to-brand-brown/5 rounded-2xl border border-brand-gold/20 text-center">
-            <p className="text-gray-700 font-sans leading-relaxed text-sm sm:text-base">
-              Haz clic en cualquier producto para ver más detalles, beneficios e ingredientes. 
-              <span className="block mt-4 text-sm text-brand-brown font-bold">
-                💳 Precios especiales disponibles. Consulta con nuestro equipo por WhatsApp.
-              </span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* <Business /> */}
-
-      <Testimonials />
-
-      <Footer />
-    </main>
-  );
+				<Features />
+				<Testimonials />
+			</main>
+		</SiteLayout>
+	);
 }

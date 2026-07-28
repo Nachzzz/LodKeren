@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,26 +31,26 @@ export default function Navbar() {
 
           {/* MENÚ DESKTOP */}
           <div className="hidden lg:flex items-center gap-8 font-sans text-brand-brown font-medium text-sm">
-            <Link href="#inicio" className="relative group">
+            <Link href="/" className="relative group">
               <span className="hover:text-brand-gold transition-colors">Inicio</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-brown group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link href="#nosotros" className="relative group">
-              <span className="hover:text-brand-gold transition-colors">Sobre Nosotros</span>
+            <Link href="/nosotros" className="relative group">
+              <span className="hover:text-brand-gold transition-colors">Nosotros</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-brown group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link href="#productos" className="relative group">
+            <Link href="/productos" className="relative group">
               <span className="hover:text-brand-gold transition-colors">Productos</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-brown group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link href="#negocio" className="relative group">
+            <Link href="/negocio" className="relative group">
               <span className="hover:text-brand-gold transition-colors">Negocio</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-brown group-hover:w-full transition-all duration-300" />
             </Link>
           </div>
 
           {/* CTA Botón Desktop */}
-          <Link href="#productos" className="hidden md:flex">
+          <Link href="/productos" className="hidden md:flex">
             <button className="relative group bg-gradient-to-r from-brand-gold to-brand-brown text-white px-6 lg:px-8 py-2 lg:py-3 rounded-lg font-bold text-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 overflow-hidden">
               <span className="relative z-10">Ver Productos</span>
               <div className="absolute inset-0 bg-white/20 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -72,28 +72,28 @@ export default function Navbar() {
         <div className="lg:hidden absolute top-full left-0 right-0 w-screen bg-gradient-to-b from-brand-cream to-white border-b-2 border-brand-gold/20 shadow-2xl py-6 px-4 flex flex-col gap-1 animate-fade-in-up">
 
           <Link
-            href="#inicio"
+            href="/"
             onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Inicio
           </Link>
           <Link
-            href="#nosotros"
+            href="/nosotros"
             onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
-            Sobre Nosotros
+            Nosotros
           </Link>
           <Link
-            href="#productos"
+            href="/productos"
             onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
             Productos
           </Link>
           <Link
-            href="#negocio"
+            href="/negocio"
             onClick={() => setIsOpen(false)}
             className="block text-brand-brown hover:text-brand-gold hover:bg-brand-cream/50 font-medium py-3 px-4 rounded-lg transition-all border-l-4 border-transparent hover:border-brand-gold text-sm"
           >
@@ -102,7 +102,7 @@ export default function Navbar() {
 
           {/* Botón Catálogo en Móvil */}
           <div className="pt-4 border-t border-brand-gold/20">
-            <Link href="#productos" onClick={() => setIsOpen(false)}>
+            <Link href="/productos" onClick={() => setIsOpen(false)}>
               <button className="w-full bg-gradient-to-r from-brand-gold to-brand-brown text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
                 Ver Productos
               </button>

@@ -8,8 +8,7 @@ const testimonials = [
     location: "Tartagal, Argentina",
     photoSrc: "/images/testimonial-maria.jpg",
     content: "Las cremas DXN transformaron mi piel. Desde el primer uso noté la hidratación y suavidad. Mi familia notó la diferencia.",
-    rating: 5,
-    videoUrl: "https://youtu.be/example"
+    rating: 5
   },
   {
     id: 2,

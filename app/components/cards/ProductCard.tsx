@@ -7,7 +7,7 @@ import type { Product } from '@/app/data/products';
 
 export default function ProductCard(product: Product) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { name, description, imageSrc, isFeatured = false, category, benefits, ingredients, skinType, price, size, usage, dermatologicalInfo, whatsappUrl } = product;
+  const { name, description, imageSrc, isFeatured = false, category, benefits, ingredients, skinType, price, size, dermatologicalInfo, whatsappUrl } = product;
 
   const fallbackWhatsappPhone = '5493873698636';
   const whatsappLink = whatsappUrl?.trim()
@@ -123,23 +123,6 @@ export default function ProductCard(product: Product) {
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Modos de uso y Certificaciones */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-                <h3 className="font-serif font-bold text-brand-brown text-xs mb-1 flex items-center gap-1.5">
-                  <span>💧</span> Modo de Uso
-                </h3>
-                <p className="text-gray-700 text-xs leading-relaxed">{usage}</p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
-                <h3 className="font-serif font-bold text-brand-brown text-xs mb-1 flex items-center gap-1.5">
-                  <span>✅</span> Dermatológico
-                </h3>
-                <p className="text-gray-700 text-xs leading-relaxed">{dermatologicalInfo}</p>
               </div>
             </div>
 

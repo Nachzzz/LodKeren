@@ -1,3 +1,5 @@
+"use client";
+
 import { TrendingUp, Users, Award } from "lucide-react";
 
 export default function Business() {
@@ -34,7 +36,7 @@ export default function Business() {
         {/* Tarjetas de Beneficios */}
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
           {[
-            { icon: <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8" />, title: "Ingreso Residual", desc: "Construye un negocio que genera ingresos continuos mientras duermes." },
+            { icon: <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8" />, title: "Ingresos Pasivos", desc: "Construye un negocio que genera ingresos continuos mientras duermes." },
             { icon: <Users className="w-6 sm:w-8 h-6 sm:h-8" />, title: "Comunidad Global", desc: "Únete a miles de emprendedores en todo el mundo con apoyo 24/7." },
             { icon: <Award className="w-6 sm:w-8 h-6 sm:h-8" />, title: "Reconocimientos", desc: "Sistema de bonos, premios y viajes por tu esfuerzo y liderazgo." }
           ].map((item, i) => (
@@ -71,9 +73,9 @@ export default function Business() {
                 <span className="relative z-10">Unirme al Equipo</span>
                 <div className="absolute inset-0 bg-white/20 transform translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
               </button>
-              <button className="border-2 border-brand-gold text-brand-gold px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base hover:bg-brand-gold/10 transition-all duration-300 backdrop-blur-sm">
+              {/* <button className="border-2 border-brand-gold text-brand-gold px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base hover:bg-brand-gold/10 transition-all duration-300 backdrop-blur-sm">
                 Solicitar Información
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

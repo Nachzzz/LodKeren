@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           {/* Columna 3: Productos Destacados */}
-          <div>
+          {/* <div>
             <h3 className="font-serif text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white border-b-2 border-brand-gold/30 pb-2 sm:pb-3">Cremas Premium</h3>
             <ul className="space-y-2 sm:space-y-3 font-sans text-gray-300 text-xs sm:text-sm">
               <li><a href="https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-total-moisturizing-cream" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors flex items-center gap-2"><span>✨</span> Total Moisturizing</a></li>
@@ -52,7 +52,7 @@ export default function Footer() {
               <li><a href="https://dxnlodkeren.empretienda.com.ar/cuidado-de-la-piel/dxn-maximum-hydration-cream" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors flex items-center gap-2"><span>✨</span> Maximum Hydration</a></li>
               <li><a href="https://dxnlodkeren.empretienda.com.ar/cuidado-personal/jabon-ganozhi" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors flex items-center gap-2"><span>✨</span> Jabón Ganozhi</a></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Columna 4: Contacto */}
           <div>
