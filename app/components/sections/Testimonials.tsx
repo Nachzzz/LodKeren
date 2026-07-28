@@ -8,7 +8,8 @@ const testimonials = [
     location: "Tartagal, Argentina",
     photoSrc: "/images/testimonial-maria.jpg",
     content: "Las cremas DXN transformaron mi piel. Desde el primer uso noté la hidratación y suavidad. Mi familia notó la diferencia.",
-    rating: 5
+    rating: 5,
+    videoUrl: "https://youtu.be/example"
   },
   {
     id: 2,
@@ -106,13 +107,13 @@ export default function Testimonials() {
                     {item.location && <p className="text-[11px] text-gray-500 mt-1">{item.location}</p>}
                   </div>
                 </div>
-                {item.videoUrl && (
+                {/* {item.videoUrl && (
                   <div className="mt-4">
                     <a href={item.videoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-brown hover:text-brand-gold transition-colors">
                       🎥 Ver Testimonio en Video
                     </a>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           ))}
